@@ -22,5 +22,15 @@ export default {
 </script>
 
 <style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap');
+  @import 'styles/utilities';
+  
+  * {
+    font-family: 'Open Sans Condensed', sans-serif;;
+  }
+
+  body {
+    margin: 0;
+  }
 
 </style>
