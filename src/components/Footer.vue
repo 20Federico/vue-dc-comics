@@ -18,7 +18,7 @@
 
     <div class="footer_foot">
       <div class="container">
-        <button>SIGN-UP NOW!</button>
+        <button class="btn_outline_primary">SIGN-UP NOW!</button>
         <div>
           <div class="social_container">
             FOLLOW US
@@ -232,6 +232,10 @@
             a {
               color: $color_grey;
               text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
             }
           }
         }
@@ -254,14 +258,6 @@
       justify-content: space-between;
       align-items: center;
 
-      button {
-        color: $color_light;
-        background-color: transparent;
-        border: 1px solid $color_primary;
-        padding: $padding_xsmall $padding_small;
-        font-weight: bold;
-      }
-
       .social_container {
         color: $color_primary;
         font-weight: bold;
@@ -274,6 +270,11 @@
         }
         img {
           padding: 7px;
+          transition: .3s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
         }
       }
 

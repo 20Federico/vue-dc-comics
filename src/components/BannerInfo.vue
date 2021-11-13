@@ -63,6 +63,7 @@
     
       img {
         height: 50px;
+        max-width: 60px;
       }
       a {
         text-decoration: none;
