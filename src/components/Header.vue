@@ -3,7 +3,7 @@
     <nav class="container">
       <img src="../assets/dc-logo.png" alt="dc logo">
       <ul>
-        <li v-for="(link, i) in navLinks" :key="i" ><a :href="link.href">{{ link.linkName }}</a></li>
+        <li v-for="(link, i) in navLinks" :key="i"><a :class="currentIndex === i ? 'active': ''" @click="currentIndex = i" :href="link.href">{{ link.linkName }}</a></li>
       </ul>
     </nav>
   </header>
@@ -26,8 +26,8 @@ export default {
         {linkName: 'FANS', href: '#'},
         {linkName: 'NEWS', href: '#'},
         {linkName: 'SHOP', href: '#'},
-      ]
-
+      ],
+      currentIndex: 0
     }
   }
 }
@@ -35,27 +35,47 @@ export default {
 
 <style scoped lang="scss">
 @import '../styles/variables';
+  
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: $padding_medium 0;
-
-    img {
-      width: 80px;
-    }
-
-    ul {
-      list-style-type: none;
+  header {
+    position: relative;
+  
+    nav {
       display: flex;
-      margin: 0;
+      justify-content: space-between;
+      align-items: center;
+      padding: $padding_medium 0;
 
-      a {
-        padding: $padding_xsmall $padding_small;
-        font-weight: bold;
-        text-decoration: none;
-        color: $color_dark_grey;
+      img {
+        width: 80px;
+      }
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        margin: 0;
+
+        a {
+          padding: $padding_xsmall $padding_small;
+          font-weight: bold;
+          text-decoration: none;
+          color: $color_dark_grey;
+          position: relative;
+
+          &.active {
+            color: $color_primary;
+            
+            &::before {
+              content: "";
+              width: 100%;
+              height: 4px;
+              background-color: $color_primary;
+              position: absolute;
+              bottom: -39px;
+              left: 0;
+            }
+          }
+        }
       }
     }
   }

@@ -1,28 +1,54 @@
 <template>
   <main>
+    <div class="banner">
+
+    </div>
     <div class="container">
-      --> Content goes here &lt;--
+      <Cards-List v-for="(cardInfo, i) in cardsInfo" :key="i"
+        :card="cardInfo"
+      ></Cards-List>
     </div>
   </main>
 </template>
 
 <script>
-export default {
-  name: "Main",
-}
+  import CardsList from '@/components/CardsList.vue';
+  import CardsInfoList from '@/assets/dc-comics.json';
+
+  export default {
+    name: "Main",
+    components: {
+      CardsList,
+    },
+    data() {
+      return {
+        cardsInfo: CardsInfoList 
+      }
+    },
+    mounted() {
+    }
+  }
 </script>
 
 <style scoped lang="scss">
-@import '../styles/variables';
+  @import '../styles/variables';
+
 
   main {
     background-color: black;
-    padding: $padding_xxlarge 0;
-
+    height: 100vh;
+    .banner {
+        height: 35%;
+        background-image: url('../assets/jumbotron.jpg');
+        background-size: cover;
+    }
     .container {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
+      height: 65%;
+      // padding: $padding_xxlarge 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
   }
 
