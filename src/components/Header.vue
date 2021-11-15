@@ -56,6 +56,7 @@ export default {
         margin: 0;
 
         a {
+          display: inline-block;
           padding: $padding_xsmall $padding_small;
           font-weight: bold;
           text-decoration: none;
